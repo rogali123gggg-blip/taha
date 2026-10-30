@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>۱۰ دو | دهم ریاضی ۲</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0c0a24;--glass:#ffffff12;--line:#ffffff26;--tx:#f4f1ff;--mut:#b6b0d8;--c1:#7c5cff;--c2:#ff5c93;--c3:#ffc857;--c4:#2ee6a6;--c5:#4cc9f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(#ffffff0d 1px,transparent 1px) 0 0/38px 38px,linear-gradient(90deg,#ffffff0d 1px,transparent 1px) 0 0/38px 38px;-webkit-mask-image:radial-gradient(circle at 50% 25%,#000,transparent 80%);mask-image:radial-gradient(circle at 50% 25%,#000,transparent 80%)}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.38;z-index:-2;animation:fl 14s ease-in-out infinite alternate}
+.b1{width:380px;height:380px;background:var(--c1);top:-100px;right:-80px}
+.b2{width:320px;height:320px;background:var(--c2);bottom:5%;left:-100px;animation-delay:-5s}
+.b3{width:260px;height:260px;background:var(--c5);top:50%;right:35%;animation-delay:-9s;opacity:.2}
+@keyframes fl{to{transform:translate(40px,-50px) scale(1.15)}}
+@keyframes pop{from{transform:translateY(14px) scale(.97);opacity:0}}
+@keyframes dr{to{stroke-dashoffset:0}}
+svg{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+i{display:inline-flex;font-style:normal}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 8px);z-index:10;margin:8px auto;width:max-content;max-width:calc(100% - 16px);display:flex;gap:4px;padding:6px;background:#1a1640cc;backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:99px}
+nav a{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:99px;color:var(--mut);font-weight:700;font-size:.9rem;cursor:pointer;transition:.2s}
+nav a:hover{color:#fff}
+nav a.on{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff}
+@media(max-width:520px){nav a span{display:none}nav a.on span{display:inline}}
+.page{display:none}.page.on{display:block;animation:pop .4s}
+header{text-align:center;padding:44px 18px 20px;position:relative;overflow:hidden}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid var(--line);border-radius:99px;background:var(--glass);color:var(--c3);font-weight:700;font-size:.9rem}
+h1{font-size:clamp(2.2rem,9vw,4.8rem);font-weight:900;line-height:1.3;margin:18px 0 10px}
+h1 span{background:linear-gradient(100deg,var(--c5),var(--c1) 35%,var(--c2) 70%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:var(--mut);font-size:1.1rem;max-width:520px;margin:0 auto 18px}
+.wave{width:100%;max-width:760px;height:90px;margin:8px auto 0;display:block}
+.wave path{vector-effect:non-scaling-stroke}
+.sw{stroke-dasharray:3000;stroke-dashoffset:3000;animation:dr 3.5s ease forwards}
+.fm{position:absolute;padding:4px 12px;border:1px solid var(--line);border-radius:12px;background:var(--glass);color:var(--mut);font-size:.8rem;opacity:.7;animation:fl 7s ease-in-out infinite alternate;direction:ltr}
+.hcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;max-width:1000px;margin:0 auto;padding:10px 18px 60px}
+.hc{position:relative;overflow:hidden;padding:26px;border-radius:26px;background:var(--glass);border:1px solid var(--line);cursor:pointer;transition:.3s}
+.hc::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,var(--k),transparent 60%);opacity:.3;transition:.3s}
+.hc:hover{transform:translateY(-8px);border-color:var(--k)}.hc:hover::before{opacity:.65}
+.hc>*{position:relative}
+.hc .n{position:absolute;left:20px;top:8px;font-size:3.6rem;font-weight:900;opacity:.12}
+.hc .ico{margin-bottom:16px;width:56px;height:56px;font-size:1.6rem}
+.hc h3{font-size:1.5rem;margin-bottom:6px}.hc p{color:var(--mut)}
+.ico{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--k,#7c5cff);color:#14112e;font-size:1.3rem}
+.wrap{max-width:1000px;margin:0 auto;padding:6px 18px 70px}
+.ph{display:flex;align-items:center;gap:14px;margin:14px 0 24px}
+.ph h2{font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--c5),var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.back{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--tx);cursor:pointer;font-size:1.3rem;transition:.2s}
+.back:hover{background:var(--c1)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.gc{position:relative;overflow:hidden;padding:22px;border-radius:26px;background:var(--glass);border:1px solid var(--line);cursor:pointer;transition:.3s}
+.gc::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,color-mix(in srgb,var(--k) 40%,transparent),transparent 55%)}
+.gc>*{position:relative}
+.gc:hover{transform:translateY(-6px);border-color:var(--k)}
+.gh{display:flex;align-items:center;gap:12px;margin-bottom:14px}.gh h3{font-size:1.4rem}
+.mb{display:flex;align-items:center;gap:10px;padding:8px 10px;margin:6px 0;border-radius:14px;background:#ffffff10}
+.gc small{display:block;margin-top:12px;color:var(--mut);font-weight:700}
+.av{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;color:#14112e;font-weight:900;font-size:.9rem;flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:11px 20px;font:inherit;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));cursor:pointer;transition:.2s;text-decoration:none}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn.g{background:var(--glass);border:1px solid var(--line)}.btn.s{padding:6px 10px}
+.modal{position:fixed;inset:0;background:#05031acc;backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:50;padding:14px}
+.modal.on{display:flex}
+.box{background:#17133a;border:1px solid var(--line);border-radius:26px;max-width:620px;width:100%;max-height:88vh;overflow:auto;padding:24px;animation:pop .3s}
+.box h3{font-size:1.4rem;margin-bottom:14px}
+.in{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#ffffff0f;color:var(--tx);font:inherit;margin:5px 0}
+.in:focus{outline:2px solid var(--c1)}
+.proj{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;margin:8px 0;border-radius:14px;background:#ffffff10;border:1px dashed var(--line)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chat{background:var(--glass);border:1px solid var(--line);border-radius:26px;overflow:hidden}
+.msgs{height:min(55vh,420px);overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.m{display:flex;gap:10px;align-items:flex-end;max-width:85%;animation:pop .25s}
+.m.me{align-self:flex-end;flex-direction:row-reverse}
+.bub{padding:9px 14px;border-radius:18px 18px 4px 18px;background:#ffffff1c;word-break:break-word}
+.m.me .bub{background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:18px 18px 18px 4px}
+.bub b{display:block;font-size:.8rem;margin-bottom:2px}.m.me .bub b{color:#fff!important}
+.bub time{display:block;font-size:.68rem;opacity:.6;margin-top:3px}
+.emp{text-align:center;color:var(--mut);margin:auto}
+.bar{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#0000002e;flex-wrap:wrap}
+.bar .in{flex:1;min-width:120px;margin:0}
+.day{padding:16px;border-radius:24px;background:var(--glass);border:1px solid var(--line);margin-bottom:14px}
+.dn{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:1.25rem;font-weight:900}
+.ps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.t{padding:12px;border-radius:18px;background:color-mix(in srgb,var(--k) 16%,transparent);border:1px solid color-mix(in srgb,var(--k) 40%,transparent);display:flex;flex-direction:column;gap:8px;transition:.25s}
+.t:hover{transform:translateY(-4px) rotate(-1deg);background:color-mix(in srgb,var(--k) 28%,transparent)}
+.th{display:flex;align-items:center;justify-content:space-between}.th small{color:var(--mut);font-weight:700}
+.t .ico{width:34px;height:34px;border-radius:10px;font-size:1rem}
+.t b{font-size:1.05rem}.t time{color:var(--mut);font-size:.8rem}
+.sub{color:var(--mut);margin:-12px 0 20px}
+.gm{max-width:640px;margin:0 auto;padding:26px;border-radius:26px;background:var(--glass);border:1px solid var(--line);text-align:center}
+.gm h3{font-size:1.6rem;margin-bottom:8px}.gm p{color:var(--mut);margin-bottom:16px}
+.gi{display:flex;justify-content:space-between;color:var(--mut);font-weight:700}
+.pb{height:8px;border-radius:99px;background:#ffffff1a;overflow:hidden;margin:10px 0 18px}
+.pb i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--c5),var(--c2))}
+.gq{font-size:1.35rem;font-weight:900;margin:8px 0 18px;line-height:1.8}
+.ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.opt{padding:14px;border-radius:16px;border:1px solid var(--line);background:#ffffff10;color:var(--tx);font:inherit;font-weight:700;cursor:pointer;transition:.2s}
+.opt:hover:not(:disabled){background:#ffffff22;transform:translateY(-2px)}
+.opt.ok{background:#2ee6a655;border-color:var(--c4)}.opt.no{background:#ff5c9355;border-color:var(--c2)}
+.big{font-size:4.5rem;font-weight:900;line-height:1.2;background:linear-gradient(100deg,var(--c3),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent;margin:10px 0}
+.lb{margin-top:20px;text-align:right}.lb div{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;margin:6px 0;border-radius:12px;background:#ffffff10}
+.pickrow{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.pk{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:2px solid transparent;background:#ffffff14;color:var(--tx);cursor:pointer;font-size:1.2rem;transition:.2s}
+.pk:hover{transform:translateY(-2px)}
+.pk.on{border-color:#fff;background:#ffffff2e}
+.pk.cl{border-radius:50%;width:34px;height:34px}
+.lbl{display:block;margin:10px 0 2px;color:var(--mut);font-weight:700;font-size:.9rem}
+textarea.in{resize:vertical;line-height:1.9}
+.now{display:flex;align-items:center;gap:14px;padding:18px;border-radius:24px;margin-bottom:14px;background:color-mix(in srgb,var(--k) 18%,transparent);border:1px solid color-mix(in srgb,var(--k) 55%,transparent)}
+.now .ico{width:54px;height:54px;font-size:1.5rem;flex:none}
+.now b{display:block;font-size:1.25rem;margin-bottom:2px}
+.now span{color:var(--mut);display:block;line-height:1.8}
+.rs{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:20px;background:var(--glass);border:1px solid var(--line);margin-bottom:18px}
+.rs label{display:inline-flex;align-items:center;gap:8px;font-weight:700;cursor:pointer}
+.rs input[type=checkbox]{width:20px;height:20px;accent-color:var(--c1)}
+.rs select.in{width:auto;margin:0;padding:8px 12px}
+.rs small{flex-basis:100%;color:var(--mut);line-height:1.8}
+.day.today{border-color:var(--c3);box-shadow:inset 0 0 0 1px var(--c3)}
+.day.today .dn::after{content:"امروز";font-size:.8rem;padding:2px 12px;border-radius:99px;background:var(--c3);color:#14112e}
+.t.cur{outline:2px solid #fff;outline-offset:2px;animation:pu 1.6s ease-in-out infinite}
+.t.nx{outline:2px dashed var(--k);outline-offset:2px}
+@keyframes pu{50%{outline-color:transparent}}
+#rem{position:fixed;top:calc(env(safe-area-inset-top,0px) + 72px);left:50%;transform:translateX(-50%);z-index:60;width:min(94%,520px);display:none;align-items:center;gap:12px;padding:14px 16px;border-radius:20px;background:#241e57;border:1px solid var(--c3);box-shadow:0 12px 40px #000a;animation:pop .3s}
+#rem .ico{width:44px;height:44px;flex:none}
+#rem div{flex:1}#rem b{display:block}#rem span{color:var(--mut);line-height:1.7}
+.opt svg{font-size:1.7rem;display:block;margin:0 auto 6px}
+footer{text-align:center;color:var(--mut);padding:24px;border-top:1px solid var(--line)}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#14112e;padding:10px 20px;border-radius:14px;z-index:99;display:none;font-weight:700}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<nav>
+<a data-go="home"><i data-i="home"></i><span>خانه</span></a><a data-go="members"><i data-i="users"></i><span>اعضا</span></a><a data-go="chat"><i data-i="chat"></i><span>پیام‌رسان</span></a><a data-go="schedule"><i data-i="cal"></i><span>برنامه کلاسی</span></a><a data-go="game"><i data-i="game"></i><span>بازی</span></a>
+</nav>
+<div class="page on" id="p-home">
+<header>
+<span class="fm" style="top:70px;right:5%">a²+b²=c²</span><span class="fm" style="top:150px;left:4%;animation-delay:-2s">∫ f(x)dx</span><span class="fm" style="top:30px;left:22%;animation-delay:-4s">sin²x+cos²x=1</span><span class="fm" style="top:210px;right:12%;animation-delay:-3s">eⁱπ+1=0</span>
+<span class="tag"><i data-i="sig"></i>دهم ریاضی</span>
+<h1>کلاس ریاضی<br><span>شعبه ۲</span></h1>
+<p>پروژه‌ها، گفت‌وگو و برنامه‌ی هفتگی؛ همه‌ی کلاس ما یک‌جا.</p>
+<span class="tag" id="today"></span>
+<svg class="wave" viewBox="0 0 600 100" preserveAspectRatio="none"><defs><linearGradient id="g"><stop offset="0" stop-color="#4cc9f0"/><stop offset=".5" stop-color="#ff5c93"/><stop offset="1" stop-color="#ffc857"/></linearGradient></defs><path d="M0 50H600M300 0V100" stroke="#ffffff22" stroke-width="1"/><path class="sw" d="M0 50Q75 -10 150 50T300 50T450 50T600 50" stroke="url(#g)" stroke-width="3"/></svg>
+</header>
+<div class="hcs">
+<div class="hc" data-go="members" style="--k:#7c5cff"><span class="n">۰۱</span><i class="ico" data-i="users"></i><h3>اعضای کلاس</h3><p>گروه‌ها و پروژه‌هایشان</p></div>
+<div class="hc" data-go="chat" style="--k:#ff5c93"><span class="n">۰۲</span><i class="ico" data-i="chat"></i><h3>پیام‌رسان</h3><p>گپ زنده‌ی کلاس</p></div>
+<div class="hc" data-go="schedule" style="--k:#2ee6a6"><span class="n">۰۳</span><i class="ico" data-i="cal"></i><h3>برنامه کلاسی</h3><p>برنامه‌ی هفتگی دهم ریاضی ۲</p></div>
+<div class="hc" data-go="game" style="--k:#ffc857"><span class="n">۰۴</span><i class="ico" data-i="game"></i><h3>بازی و کوییز</h3><p>امتیازت را بساز و رکورد بزن</p></div>
+</div>
+</div>
+<section class="page wrap" id="p-members"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>اعضای کلاس</h2></div><div class="row" style="margin:-8px 0 20px"><button class="btn" id="addg"><i data-i="plus"></i>افزودن گروه</button></div><div class="groups" id="groups"></div></section>
+<section class="page wrap" id="p-chat"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>پیام‌رسان کلاس</h2></div>
+<div class="chat"><div class="msgs" id="msgs"></div>
+<div class="bar"><input class="in" id="cname" placeholder="اسمت" style="max-width:150px"><input class="in" id="ctext" placeholder="پیامت را بنویس..."><button class="btn" id="send"><i data-i="send"></i>ارسال</button></div></div></section>
+<section class="page wrap" id="p-schedule"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>برنامه کلاسی دهم ریاضی ۲</h2></div>
+<p class="sub">برنامه‌ی هفتگی کلاس ریاضی شعبه ۲.</p>
+<div id="nowbox"></div>
+<div class="rs"><label><input type="checkbox" id="remon">یادآور زنگ‌ها</label><span>قبل از هر زنگ</span><select class="in" id="remlead"><option value="5">۵ دقیقه</option><option value="10">۱۰ دقیقه</option><option value="15">۱۵ دقیقه</option></select><span>خبرم کن</span><button class="btn g s" id="remtest">تست یادآور</button><small id="remhint"></small></div>
+<div id="days"></div></section>
+<section class="page wrap" id="p-game"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>کوییز علمی</h2></div><div class="gm" id="gbox"></div></section>
+<footer>ساخته‌شده برای کلاس دهم ریاضی شعبه ۲<br><small id="net"></small></footer>
+<div class="modal" id="modal"><div class="box" id="mbox"></div></div>
+<div id="rem"></div>
+<div id="toast"></div>
+<script>
+// ناوبری را از ابتدای اجرای اسکریپت فعال می‌کنیم تا حتی اگر بخش دیگری خطا داشت، کلیک‌ها کار کنند.
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("[data-go]");
+  if (!target) return;
+  e.preventDefault();
+  const page = target.dataset.go;
+  document.querySelectorAll(".page").forEach(el => el.classList.toggle("on", el.id === "p-" + page));
+  document.querySelectorAll("nav a").forEach(el => el.classList.toggle("on", el.dataset.go === page));
+  window.scrollTo(0, 0);
+  if (page === "chat" && typeof showMsgs === "function") showMsgs();
+  if (page === "schedule" && typeof tick === "function") tick();
+  if (page === "game" && typeof gStart === "function") gStart();
+  else if (typeof gt !== "undefined") clearInterval(gt);
+});
+window.addEventListener("error", function (e) {
+  console.error("خطای سایت:", e.message, e.filename, e.lineno);
+});
+// گروه‌های پیش‌فرض (برای همه‌ی بازدیدکنندگان). گروه‌هایی که از دکمه‌ی «افزودن گروه» ساخته شوند جدا ذخیره می‌شوند.
+const DEFAULT_GROUPS=[
+ {name:"گروه کامپیوتر",icon:"code",color:"#7c5cff",members:["امیر عباس عباسی","امیر رضا روزی طلب","علی طالبی"]}
+];
+// برنامه کلاسی: [روز، زنگ ۱، زنگ ۲، زنگ ۳، زنگ ۴]
+const D=[
+ ["شنبه","عربی","هندسه","مهارت‌های زندگی","دفاعی"],
+ ["یکشنبه","ورزش","فارسی","تفکر و سواد رسانه‌ای","زبان انگلیسی"],
+ ["دوشنبه","ریاضی","ریاضی","فیزیک","جغرافیا"],
+ ["سه‌شنبه","شیمی","شیمی","ریاضی","تست شبه کنکور"],
+ ["چهارشنبه","نگارش","دینی","فیزیک","فیزیک"]
+];
+const T=["۷:۳۰ – ۸:۵۰","۹:۱۰ – ۱۰:۳۰","۱۰:۴۵ – ۱۲:۰۵","۱۲:۲۰ – ۱۳:۴۵"];
+const S={"ریاضی":["sig","#7c5cff"],"هندسه":["tri","#4cc9f0"],"فیزیک":["atom","#ff8a3d"],"شیمی":["flask","#2ee6a6"],"عربی":["ar","#ff5c93"],"فارسی":["book","#ffc857"],"دینی":["moon","#a3e635"],"جغرافیا":["globe","#38bdf8"],"زبان انگلیسی":["en","#f472b6"],"نگارش":["pen","#fb7185"],"ورزش":["dumb","#f97316"],"دفاعی":["shield","#94a3b8"],"مهارت‌های زندگی":["heart","#e879f9"],"تفکر و سواد رسانه‌ای":["eye","#22d3ee"],"تست شبه کنکور":["test","#facc15"]};
+const IC={
+home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',
+bell:'<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4zM10 21h4"/>',
+users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-4 3-6 6.5-6s6.5 2 6.5 6M16 5a3.5 3.5 0 010 7M18 14c2.5.6 3.5 2.6 3.5 6"/>',
+chat:'<path d="M4 5h16v11H10l-5 4v-4H4z"/>',
+cal:'<path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/>',
+back:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+up:'<path d="M12 16V4M7 9l5-5 5 5M4 20h16"/>',
+dl:'<path d="M12 4v12M7 11l5 5 5-5M4 20h16"/>',
+del:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+send:'<path d="M3 11l18-8-8 18-2-8z"/>',
+sig:'<path d="M18 5H6l6 7-6 7h12"/>',
+tri:'<path d="M12 4l9 16H3zM12 4v16"/>',
+atom:'<circle cx="12" cy="12" r="1.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>',
+flask:'<path d="M9 3h6M10 3v6l-5 10a1 1 0 001 1h12a1 1 0 001-1l-5-10V3M7.5 15h9"/>',
+book:'<path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1zM12 6v14"/>',
+ar:'<text x="12" y="18" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" stroke="none">ع</text>',
+en:'<text x="12" y="18" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" stroke="none">A</text>',
+moon:'<path d="M20 14A8 8 0 1110 4a6.5 6.5 0 0010 10z"/>',
+globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c4 4 4 14 0 18M12 3c-4 4-4 14 0 18"/>',
+pen:'<path d="M4 20l1-5L16 4l4 4L9 19zM14 6l4 4"/>',
+dumb:'<path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/>',
+shield:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/>',
+heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.5A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/>',
+eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+test:'<path d="M5 3h14v18H5zM9 8l1.5 1.5L13 7M9 15h6"/>',
+game:'<rect x="3" y="8" width="18" height="10" rx="4"/><path d="M8 11v4M6 13h4M15.5 12.5h.01M17.5 14.5h.01"/>'
+};
+const ic=n=>`<svg viewBox="0 0 24 24">${IC[n]||""}</svg>`;
+document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=ic(e.dataset.i));
+const $=s=>document.querySelector(s);
+let tt;const toast=m=>{const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(tt);tt=setTimeout(()=>t.style.display="none",2800)};
+const mem={};
+const load=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return k in mem?mem[k]:d}};
+const save=(k,v)=>{mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v));return true}catch{toast("حافظه مرورگر پر است یا در دسترس نیست");return false}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const col=n=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%360;return`hsl(${h} 75% 65%)`};
+const av=n=>`<b class="av" style="background:${col(n)}">${esc([...n][0]||"؟")}</b>`;
+const PAL=["#7c5cff","#ff5c93","#2ee6a6","#ffc857","#4cc9f0"];
+const fa=n=>n.toLocaleString("fa-IR");
+
+$("#today").textContent="امروز: "+new Date().toLocaleDateString("fa-IR",{weekday:"long",day:"numeric",month:"long"});
+
+// گروه‌ها
+const ICON_CHOICES=["users","code","atom","flask","book","sig","tri","game","heart","globe"];
+const COLOR_CHOICES=["#7c5cff","#ff5c93","#2ee6a6","#ffc857","#4cc9f0","#ff8a3d","#a3e635","#e879f9"];
+let GROUPS=[];
+let CG=load("custom_groups",[]);
+const customGroups=()=>CG;
+function putGroups(l){CG=l;const ok=save("custom_groups",l);if(DB)DB.doc("cfg/groups").set({list:l}).catch(()=>toast("ذخیره‌ی آنلاین انجام نشد"));return ok}
+function renderGroups(){
+ GROUPS=[...DEFAULT_GROUPS,...customGroups().map(g=>({...g,custom:true}))];
+ $("#groups").innerHTML=GROUPS.map((g,i)=>`<div class="gc" style="--k:${g.color||PAL[i%5]}" onclick="openGroup(${i})"><div class="gh"><i class="ico">${ic(g.icon||"users")}</i><h3>${esc(g.name)}</h3>${g.custom?`<button class="btn g s" style="margin-inline-start:auto" title="حذف گروه" onclick="event.stopPropagation();askDelGroup(${i-DEFAULT_GROUPS.length})">${ic("del")}</button>`:""}</div>${g.members.map(m=>`<div class="mb">${av(m)}<span>${esc(m)}</span></div>`).join("")}<small>ورود به بخش پروژه‌ها ←</small></div>`).join("");
+}
+const modal=$("#modal");modal.onclick=e=>{if(e.target===modal)modal.classList.remove("on")};
+function openAddGroup(){
+ let icon=ICON_CHOICES[0],color=COLOR_CHOICES[GROUPS.length%COLOR_CHOICES.length];
+ $("#mbox").innerHTML=`<h3>افزودن گروه جدید</h3>
+ <input class="in" id="gname" placeholder="اسم گروه (مثلاً گروه رباتیک)" maxlength="30">
+ <textarea class="in" id="gmem" rows="5" placeholder="اسم اعضا را بنویس؛ هر نفر در یک خط"></textarea>
+ <span class="lbl">آیکن گروه</span><div class="pickrow" id="icp">${ICON_CHOICES.map(n=>`<button type="button" class="pk${n===icon?" on":""}" data-v="${n}">${ic(n)}</button>`).join("")}</div>
+ <span class="lbl">رنگ گروه</span><div class="pickrow" id="clp">${COLOR_CHOICES.map(c=>`<button type="button" class="pk cl${c===color?" on":""}" data-v="${c}" style="background:${c}"></button>`).join("")}</div>
+ <div class="row"><button class="btn" id="gsave">${ic("plus")}افزودن گروه</button><button class="btn g" id="gcancel">انصراف</button></div>`;
+ const pick=(sel,set)=>document.querySelectorAll(sel+" .pk").forEach(b=>b.onclick=()=>{document.querySelectorAll(sel+" .pk").forEach(x=>x.classList.remove("on"));b.classList.add("on");set(b.dataset.v)});
+ pick("#icp",v=>icon=v);pick("#clp",v=>color=v);
+ $("#gcancel").onclick=()=>modal.classList.remove("on");
+ $("#gsave").onclick=()=>{
+  const name=$("#gname").value.trim().replace(/\s+/g," ");
+  const members=[...new Set($("#gmem").value.split(/[\n،,؛;]+/).map(s=>s.trim()).filter(Boolean))];
+  if(!name)return toast("اسم گروه را بنویس");
+  if(!members.length)return toast("حداقل یک عضو اضافه کن");
+  if(GROUPS.some(g=>g.name===name))return toast("گروهی با این اسم وجود دارد");
+  const l=customGroups();l.push({name,icon,color,members});
+  if(putGroups(l)){modal.classList.remove("on");renderGroups();toast("گروه «"+name+"» اضافه شد")}
+ };
+ modal.classList.add("on");setTimeout(()=>$("#gname").focus(),50);
+}
+function askDelGroup(j){
+ const g=customGroups()[j];if(!g)return;
+ $("#mbox").innerHTML=`<h3>حذف گروه</h3><p style="color:var(--mut)">گروه «${esc(g.name)}» و همه‌ی پروژه‌های آپلودشده‌ی آن حذف می‌شود. مطمئنی؟</p><div class="row"><button class="btn" id="gyes">${ic("del")}بله، حذف شود</button><button class="btn g" id="gno">انصراف</button></div>`;
+ $("#gno").onclick=()=>modal.classList.remove("on");
+ $("#gyes").onclick=()=>{
+  const l=customGroups();l.splice(j,1);putGroups(l);
+  delete mem["proj_"+g.name];try{localStorage.removeItem("proj_"+g.name)}catch{}
+  modal.classList.remove("on");renderGroups();toast("گروه حذف شد");
+ };
+ modal.classList.add("on");
+}
+$("#addg").onclick=openAddGroup;
+renderGroups();
+function openGroup(i){
+ const g=GROUPS[i],key="proj_"+g.name;
+ const render=()=>{
+  const list=load(key,[]);
+  $("#mbox").innerHTML=`<h3>پروژه‌های ${esc(g.name)}</h3>
+  <input class="in" id="pn" placeholder="اسم پروژه"><input class="in" id="pa" placeholder="اسم شما">
+  <input class="in" type="file" id="pf">
+  <div class="row"><button class="btn" id="up">${ic("up")}آپلود پروژه</button><button class="btn g" id="cl">بستن</button></div>
+  <hr style="margin:16px 0;border:0;border-top:1px solid var(--line)">
+  ${list.length?list.map((p,j)=>`<div class="proj"><span><b>${esc(p.title)}</b> — ${esc(p.by)}</span><span class="row" style="margin:0"><a class="btn g s" href="${p.data}" download="${esc(p.fname)}">${ic("dl")}</a><button class="btn s" onclick="delP(${j})">${ic("del")}</button></span></div>`).join(""):"<p class='emp'>هنوز پروژه‌ای آپلود نشده</p>"}`;
+  $("#cl").onclick=()=>modal.classList.remove("on");
+  $("#up").onclick=()=>{
+   const f=$("#pf").files[0],t=$("#pn").value.trim(),by=$("#pa").value.trim();
+   if(!f||!t||!by)return toast("اسم پروژه، اسم شما و فایل را کامل کن");
+   if(f.size>1.5*1024*1024)return toast("حداکثر حجم فایل ۱.۵ مگابایت");
+   const r=new FileReader();r.onload=()=>{list.push({title:t,by,fname:f.name,data:r.result});if(save(key,list))render()};r.readAsDataURL(f);
+  };
+ };
+ window.delP=j=>{const l=load(key,[]);l.splice(j,1);save(key,l);render()};
+ render();modal.classList.add("on");
+}
+
+// پیام‌رسان (آنلاین و مشترک بین همه؛ در حالت محلی روی همین دستگاه)
+let DB=null,MS=load("msgs",[]),LB=load("lb",[]);
+const setNet=()=>$("#net").textContent=DB?"● آنلاین: پیام‌ها، گروه‌ها و رکوردها بین همه مشترک است":"● حالت محلی: اطلاعات فقط روی همین دستگاه ذخیره می‌شود";
+setNet();
+(async()=>{
+ try{DB=window.claude?await claude.use("db"):null}catch{DB=null}
+ setNet();if(!DB)return;
+ const er=e=>console.error(e);
+ DB.collection("msgs").orderBy("ts").limit(150).onSnapshot(s=>{MS=s.docs.map(d=>d.data());showMsgs()},er);
+ DB.collection("lb").orderBy("s","desc").limit(8).onSnapshot(s=>{LB=s.docs.map(d=>d.data())},er);
+ DB.doc("cfg/groups").onSnapshot(s=>{if(s.exists){CG=s.data().list||[];renderGroups()}},er);
+})();
+$("#cname").value=load("myname","");
+function showMsgs(){
+ const me=$("#cname").value.trim();
+ $("#msgs").innerHTML=MS.map(m=>`<div class="m ${m.n===me?"me":""}">${av(m.n)}<div class="bub"><b style="color:${col(m.n)}">${esc(m.n)}</b>${esc(m.t)}<time>${esc(m.time||"")}</time></div></div>`).join("")||"<p class='emp'>هنوز پیامی نیست. اولین نفر باش!</p>";
+ $("#msgs").scrollTop=1e9;
+}
+function sendMsg(){
+ const n=$("#cname").value.trim(),t=$("#ctext").value.trim();
+ if(!n)return toast("اول اسمت را بنویس");if(!t)return;
+ const m={n,t,time:new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"}),ts:Date.now()};
+ save("myname",n);$("#ctext").value="";
+ if(DB)DB.collection("msgs").add(m).catch(()=>toast("پیام ارسال نشد؛ اجازه‌ی نوشتن نداری یا اینترنت قطع است"));
+ else{MS.push(m);save("msgs",MS);showMsgs()}
+}
+$("#send").onclick=sendMsg;$("#ctext").onkeydown=e=>{if(e.key==="Enter")sendMsg()};$("#cname").oninput=showMsgs;
+showMsgs();
+
+// برنامه کلاسی
+$("#days").innerHTML=D.map(d=>`<div class="day"><div class="dn"><span>${d[0]}</span></div><div class="ps">${d.slice(1).map((s,j)=>{const[k,c]=S[s];return`<div class="t" style="--k:${c}"><div class="th"><i class="ico">${ic(k)}</i><small>زنگ ${"۱۲۳۴"[j]}</small></div><b>${s}</b><time>${T[j]}</time></div>`}).join("")}</div></div>`).join("");
+
+// ===== یادآور زنگ‌ها =====
+// ساعت شروع و پایان هر زنگ (به دقیقه از نیمه‌شب): ۷:۳۰–۸:۵۰ ، ۹:۱۰–۱۰:۳۰ ، ۱۰:۴۵–۱۲:۰۵ ، ۱۲:۲۰–۱۳:۴۵
+const PER=[[450,530],[550,630],[645,725],[740,825]];
+const DAYFA=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنج‌شنبه","جمعه","شنبه"]; // به ترتیب getDay()
+const startTxt=j=>T[j].split(" – ")[0];
+const mins=s=>Math.max(1,Math.ceil(s/60));
+const dur=m=>{const h=Math.floor(m/60),r=m%60;return h?`${fa(h)} ساعت${r?" و "+fa(r)+" دقیقه":""}`:`${fa(r)} دقیقه`};
+const nowInfo=()=>{const d=new Date();return{di:(d.getDay()+1)%7,ns:d.getHours()*3600+d.getMinutes()*60+d.getSeconds(),dow:d.getDay()}};
+// di: شنبه=۰ ... چهارشنبه=۴ ، پنج‌شنبه=۵ ، جمعه=۶
+function status(){
+ const {di,ns,dow}=nowInfo();
+ if(di<5){
+  for(let j=0;j<4;j++){
+   const [a,b]=PER[j];
+   if(ns<a*60)return{type:j===0?"before":"break",di,ns,cur:-1,nx:j,left:a*60-ns};
+   if(ns<b*60)return{type:"in",di,ns,cur:j,nx:j+1<4?j+1:-1,left:b*60-ns};
+  }
+  return{type:"after",di,ns,cur:-1,nx:-1,nd:di===4?0:di+1,dow};
+ }
+ return{type:"off",di,ns,cur:-1,nx:-1,nd:0,dow};
+}
+const dayWord=(di,nd)=>nd===(di+1)%7?`فردا (${D[nd][0]})`:D[nd][0];
+function bannerHtml(st){
+ const sj=j=>D[st.di][j+1],col=s=>(S[s]||["users","#7c5cff"]);
+ let k,icon,title,text;
+ if(st.type==="in"){
+  const s=sj(st.cur);[icon,k]=col(s);
+  title=`الان زنگ ${fa(st.cur+1)}: ${s}`;
+  text=`${dur(mins(st.left))} تا پایان این زنگ مانده است.`+(st.nx>=0?` بعدی: ${sj(st.nx)} (ساعت ${startTxt(st.nx)})`:" این آخرین زنگ امروز است.");
+ }else if(st.type==="before"||st.type==="break"){
+  const s=sj(st.nx);[icon,k]=col(s);
+  title=st.type==="before"?`امروز اولین زنگ: ${s}`:`زنگ تفریح؛ زنگ بعدی: ${s}`;
+  text=`ساعت ${startTxt(st.nx)} باید سر کلاس ${s} باشی (زنگ ${fa(st.nx+1)}) — ${dur(mins(st.left))} دیگر.`;
+ }else if(st.type==="after"){
+  const s=D[st.nd][1];[icon,k]=col(s);
+  title="کلاس‌های امروز تمام شد";
+  text=`کلاس بعدی: ${dayWord(st.di,st.nd)} ساعت ${startTxt(0)} — ${s}.`;
+ }else{
+  const s=D[0][1];[icon,k]=col(s);
+  title=`امروز ${DAYFA[st.dow]} است و کلاس نداری`;
+  text=`کلاس بعدی: ${dayWord(st.di,0)} ساعت ${startTxt(0)} — ${s}.`;
+ }
+ return`<div class="now" style="--k:${k}"><i class="ico">${ic(icon)}</i><div><b>${esc(title)}</b><span>${esc(text)}</span></div></div>`;
+}
+let RS=Object.assign({on:false,lead:10},load("rem_set",{}));
+let fired=load("rem_fired",{d:"",k:[]}),AC,remT;
+const beep=()=>{try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();
+ const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.connect(g);g.connect(AC.destination);o.frequency.value=880;
+ g.gain.setValueAtTime(.001,t);g.gain.exponentialRampToValueAtTime(.25,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.6);o.start(t);o.stop(t+.65);
+ if(navigator.vibrate)navigator.vibrate([200,100,200])}catch{}};
+function showRem(t,x){
+ const r=$("#rem");
+ r.innerHTML=`<i class="ico" style="--k:#ffc857">${ic("bell")}</i><div><b>${esc(t)}</b><span>${esc(x)}</span></div><button class="btn g s" aria-label="بستن" onclick="this.parentElement.style.display='none'">✕</button>`;
+ r.style.display="flex";clearTimeout(remT);remT=setTimeout(()=>r.style.display="none",120000);
+ beep();
+ try{if("Notification"in window&&Notification.permission==="granted")new Notification(t,{body:x,lang:"fa",dir:"rtl"})}catch{}
+}
+function checkRem(st){
+ if(!RS.on||st.di>=5)return;
+ const today=new Date().toDateString();
+ if(fired.d!==today)fired={d:today,k:[]};
+ for(let j=0;j<4;j++){
+  const left=PER[j][0]*60-st.ns;
+  if(left>0&&left<=RS.lead*60&&!fired.k.includes(j)){
+   fired.k.push(j);save("rem_fired",fired);
+   const s=D[st.di][j+1];
+   showRem("وقت رفتن سر کلاس است",`${dur(mins(left))} دیگر زنگ ${fa(j+1)}: ${s} (ساعت ${startTxt(j)})`);
+  }
+ }
+}
+function remHint(){
+ let h=RS.on?`یادآور روشن است؛ ${fa(RS.lead)} دقیقه قبل از هر زنگ خبر می‌دهم. برای کار کردن، این صفحه باید در مرورگر باز بماند.`:"یادآور خاموش است. با روشن کردن آن، قبل از شروع هر زنگ به‌صورت خودکار خبرت می‌کنم.";
+ if(RS.on){
+  if(!("Notification"in window))h+=" اعلان سیستم در این مرورگر پشتیبانی نمی‌شود؛ پیام فقط داخل صفحه نشان داده می‌شود.";
+  else if(Notification.permission==="denied")h+=" اجازه‌ی اعلان مرورگر بسته است؛ پیام فقط داخل صفحه نشان داده می‌شود.";
+  else if(Notification.permission==="granted")h+=" اعلان مرورگر هم فعال است.";
+ }
+ $("#remhint").textContent=h;
+}
+function tick(){
+ const st=status();
+ $("#nowbox").innerHTML=bannerHtml(st);
+ document.querySelectorAll("#days .day").forEach((el,i)=>{
+  el.classList.toggle("today",i===st.di);
+  el.querySelectorAll(".t").forEach((t,j)=>{t.classList.toggle("cur",i===st.di&&st.cur===j);t.classList.toggle("nx",i===st.di&&st.nx===j)});
+ });
+ checkRem(st);
+}
+$("#remon").checked=RS.on;$("#remlead").value=String(RS.lead);
+$("#remon").onchange=e=>{
+ RS.on=e.target.checked;save("rem_set",RS);
+ if(RS.on){
+  try{if("Notification"in window&&Notification.permission==="default")Notification.requestPermission().then(remHint)}catch{}
+  try{AC=AC||new(window.AudioContext||window.webkitAudioContext)()}catch{}
+  toast("یادآور روشن شد");
+ }
+ remHint();tick();
+};
+$("#remlead").onchange=e=>{RS.lead=+e.target.value;save("rem_set",RS);remHint();tick()};
+$("#remtest").onclick=()=>{
+ const st=status(),j=st.nx>=0?st.nx:0,s=D[st.di<5?st.di:0][j+1];
+ showRem("یادآور آزمایشی",`این‌طوری خبرت می‌کنم: ${fa(RS.lead)} دقیقه دیگر زنگ ${fa(j+1)}: ${s} (ساعت ${startTxt(j)})`);
+};
+remHint();tick();setInterval(tick,5000);
+
+// بازی‌ها: هر سؤال [متن، پاسخ درست، سه پاسخ غلط]
+const TP=[
+{n:"ریاضی سریع",i:"sig",c:"#7c5cff",gen:1},
+{n:"فیزیک",i:"atom",c:"#ff8a3d",q:[
+["یکای انرژی در SI چیست؟","ژول","وات","نیوتن","پاسکال"],
+["کدام کمیت برداری است؟","سرعت","جرم","زمان","دما"],
+["صدا در کدام محیط منتشر نمی‌شود؟","خلأ","آب","هوا","فولاد"],
+["یکای فشار در SI چیست؟","پاسکال","ژول","ولت","نیوتن"],
+["رابطه‌ی نیروی وزن کدام است؟","W = mg","W = m/g","W = mv","W = g/m"],
+["شتاب گرانش نزدیک زمین تقریباً چقدر است؟","۹٫۸ متر بر مجذور ثانیه","۱۹٫۶","۳٫۹","۹۸"]]},
+{n:"شیمی",i:"flask",c:"#2ee6a6",q:[
+["نماد شیمیایی سدیم کدام است؟","Na","S","So","N"],
+["عدد اتمی کربن چند است؟","۶","۸","۱۲","۴"],
+["pH آب خالص در ۲۵ درجه چقدر است؟","۷","۰","۱۴","۱"],
+["فراوان‌ترین گاز هواکره کدام است؟","نیتروژن","اکسیژن","آرگون","کربن دی‌اکسید"],
+["فرمول نمک خوراکی کدام است؟","NaCl","KCl","NaOH","HCl"],
+["گیاهان در فتوسنتز کدام گاز را مصرف می‌کنند؟","کربن دی‌اکسید","اکسیژن","نیتروژن","هیدروژن"]]},
+{n:"ادبیات فارسی",i:"book",c:"#ffc857",q:[
+["سراینده‌ی شاهنامه کیست؟","فردوسی","سعدی","حافظ","مولوی"],
+["«گلستان» اثر کیست؟","سعدی","حافظ","نظامی","خیام"],
+["«مثنوی معنوی» اثر کیست؟","مولوی","عطار","سنایی","فردوسی"],
+["رباعیات مشهور به کدام شاعر است؟","خیام","حافظ","نظامی","سعدی"],
+["لقب «لسان‌الغیب» از آنِ کیست؟","حافظ","سعدی","فردوسی","مولوی"],
+["«بوستان» اثر کیست؟","سعدی","نظامی","عطار","ناصرخسرو"]]},
+{n:"ایران و جهان",i:"globe",c:"#4cc9f0",q:[
+["بلندترین قله‌ی ایران کدام است؟","دماوند","سبلان","علم‌کوه","الوند"],
+["بلندترین قله‌ی جهان کدام است؟","اورست","K2","دماوند","مون‌بلان"],
+["بزرگ‌ترین قاره کدام است؟","آسیا","آفریقا","اروپا","آمریکای شمالی"],
+["تخت جمشید در کدام استان است؟","فارس","اصفهان","یزد","خوزستان"],
+["بزرگ‌ترین دریاچه‌ی جهان کدام است؟","دریای خزر","سوپریور","ویکتوریا","بایکال"],
+["پایتخت ژاپن کدام شهر است؟","توکیو","اوزاکا","کیوتو","سئول"]]},
+{n:"کامپیوتر",i:"code",c:"#f472b6",q:[
+["CPU مخفف چیست؟","واحد پردازش مرکزی","حافظه‌ی تصادفی","کارت گرافیک","درگاه ورودی"],
+["مبنای اعداد در سیستم دودویی چند است؟","۲","۸","۱۰","۱۶"],
+["هر بایت چند بیت است؟","۸","۴","۱۶","۱۰"],
+["کدام زبان ساختار صفحات وب را می‌سازد؟","HTML","Python","SQL","C"],
+["کدام یک سیستم‌عامل است؟","لینوکس","اکسل","کروم","پایتون"],
+["عدد ۱۱۰۱ در مبنای دو برابر است با؟","۱۳","۱۱","۱۵","۹"]]}
+];
+const genMath=()=>Array.from({length:10},()=>{const t=Math.random()*3|0,a=2+(Math.random()*(t==2?10:60)|0),b=2+(Math.random()*(t==2?10:40)|0),r=t==0?a+b:t==1?a-b:a*b,w=new Set;
+ while(w.size<3){const d=(1+(Math.random()*9|0))*(Math.random()<.5?-1:1);w.add(r+d)}
+ return[`${fa(a)} ${["+","−","×"][t]} ${fa(b)} = ؟`,fa(r),...[...w].map(fa)]});
+let G,gt;
+const lbHtml=()=>LB.length?`<div class="lb"><b>برترین‌ها</b>${LB.map((x,i)=>`<div><span>${fa(i+1)}. ${esc(x.n)}${x.tp?" · "+esc(x.tp):""}</span><span>${fa(x.s)} امتیاز</span></div>`).join("")}</div>`:"";
+function gStart(){
+ clearInterval(gt);
+ $("#gbox").innerHTML=`<h3>آماده‌ای؟</h3><p>اسمت را بنویس، بعد موضوع بازی را انتخاب کن. هر پاسخ درست ۱۰ امتیاز دارد و سریع‌تر جواب‌دادن تا ۵ امتیاز بیشتر می‌دهد.</p><input class="in" id="gn" placeholder="اسمت را بنویس" maxlength="20" style="text-align:center"><div class="row" style="justify-content:center"><button class="btn" id="gs">${ic("game")}ادامه</button></div>${lbHtml()}`;
+ $("#gn").value=load("myname","");
+ $("#gs").onclick=()=>{const n=$("#gn").value.trim();if(!n)return toast("اول اسمت را بنویس");save("myname",n);$("#cname").value=n;gTopics(n)};
+}
+function gTopics(n){
+ $("#gbox").innerHTML=`<h3>${esc(n)}، موضوع بازی را انتخاب کن</h3><div class="ops">${TP.map((t,i)=>`<button class="opt" data-t="${i}" style="border-color:${t.c}">${ic(t.i)}${t.n}<br><small>${t.gen?"۱۰ سؤال تصادفی":fa(t.q.length)+" سؤال"}</small></button>`).join("")}</div><div class="row" style="justify-content:center"><button class="btn g" id="gb">بازگشت</button></div>`;
+ document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{const t=TP[b.dataset.t];G={n,tp:t.n,i:0,s:0,c:0,q:t.gen?genMath():[...t.q].sort(()=>Math.random()-.5)};gAsk()});
+ $("#gb").onclick=gStart;
+}
+function gAsk(){
+ clearInterval(gt);
+ const N=G.q.length,[q,...o]=G.q[G.i],r=o[0],op=[...o].sort(()=>Math.random()-.5);let L=15;
+ $("#gbox").innerHTML=`<div class="gi"><span>${esc(G.tp)} · سؤال ${fa(G.i+1)} از ${fa(N)}</span><span>امتیاز: ${fa(G.s)}</span></div><div class="pb"><i id="tb"></i></div><div class="gq">${q}</div><div class="ops">${op.map(x=>`<button class="opt">${x}</button>`).join("")}</div>`;
+ const done=pick=>{clearInterval(gt);if(pick===r){G.c++;G.s+=10+Math.ceil(L/3)}
+  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(b.textContent===r)b.classList.add("ok");else if(b.textContent===pick)b.classList.add("no")});
+  setTimeout(()=>{G.i++;G.i<N?gAsk():gEnd()},1100)};
+ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>done(b.textContent));
+ gt=setInterval(()=>{L-=.1;$("#tb").style.width=(L/15*100)+"%";if(L<=0)done(null)},100);
+}
+function gEnd(){
+ const N=G.q.length,rec={n:G.n,s:G.s,c:G.c,tp:G.tp,ts:Date.now()};
+ LB=[...LB,rec].sort((a,b)=>b.s-a.s).slice(0,8);save("lb",LB);
+ if(DB)DB.collection("lb").add(rec).catch(()=>{});
+ const f=G.c/N,m=f>=.9?"نابغه‌ای!":f>=.7?"عالی بود!":f>=.5?"خوب بود!":"دفعه‌ی بعد بهتر می‌شود!";
+ $("#gbox").innerHTML=`<h3>${esc(G.n)}، ${m}</h3><div class="big">${fa(G.s)}</div><p>${esc(G.tp)} · ${fa(G.c)} پاسخ درست از ${fa(N)}</p><div class="row" style="justify-content:center"><button class="btn" id="ga">بازی دوباره</button></div>${lbHtml()}`;
+ $("#ga").onclick=()=>gTopics(G.n);
+}
+
+// صفحه‌ها
+function go(p){document.querySelectorAll(".page").forEach(e=>e.classList.toggle("on",e.id==="p-"+p));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.go===p));scrollTo(0,0);if(p==="chat")showMsgs();if(p==="game")gStart();else clearInterval(gt)}
+
+go("home");
+</script>
+</body>
+</html>
