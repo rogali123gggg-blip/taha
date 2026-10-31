@@ -126,6 +126,23 @@ textarea.in{resize:vertical;line-height:1.9}
 #rem .ico{width:44px;height:44px;flex:none}
 #rem div{flex:1}#rem b{display:block}#rem span{color:var(--mut);line-height:1.7}
 .opt svg{font-size:1.7rem;display:block;margin:0 auto 6px}
+.gate{position:fixed;inset:0;z-index:100;display:none;place-items:center;align-content:center;gap:14px;background:#0d0a24;padding:20px;text-align:center}
+.gate.on{display:grid}
+.gate h2{margin:0 0 6px}
+.gcard{display:block;width:min(92vw,360px);padding:22px;border-radius:24px;border:2px solid var(--c3);background:var(--glass);color:var(--tx);font:inherit;font-size:1.3rem;font-weight:800;cursor:pointer;transition:.2s}
+.gcard:hover{transform:translateY(-3px);background:#ffffff22}
+.gcard small{display:block;color:var(--mut);font-weight:400;font-size:.9rem;margin-top:4px}
+.dsp{padding:14px 16px;border-radius:18px;background:#ffffff0f;border:1px solid var(--line);margin-bottom:12px;direction:ltr;text-align:left;font-size:1.6rem;min-height:3.2rem;overflow-x:auto;white-space:nowrap}
+.cg{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;direction:ltr}
+.cg button{padding:14px 0;border-radius:14px;border:1px solid var(--line);background:#ffffff14;color:var(--tx);font:inherit;font-size:1rem;cursor:pointer}
+.cg button:active{transform:scale(.95)}.cg .f{background:#7c5cff30}.cg .op{background:#4cc9f040}.cg .o{background:#ff5c9340}
+.cg .eq{background:linear-gradient(135deg,var(--c1),var(--c2));border:0;font-weight:800}
+.ec{padding:16px;border-radius:20px;background:var(--glass);border:1px solid var(--line);margin-bottom:14px}
+.chip{padding:3px 12px;border-radius:99px;background:#ffffff1f;font-size:.85rem}.chip.soon{background:#ff5c93}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.mi{border-radius:16px;background:var(--glass);border:1px solid var(--line);padding:8px;overflow:hidden}
+.mi img,.mi video{width:100%;border-radius:10px;display:block;max-height:240px;object-fit:cover}.mi audio{width:100%}
+.mn{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:.85rem}.mn>span:first-child{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 footer{text-align:center;color:var(--mut);padding:24px;border-top:1px solid var(--line)}
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#14112e;padding:10px 20px;border-radius:14px;z-index:99;display:none;font-weight:700}
 </style>
@@ -133,13 +150,13 @@ footer{text-align:center;color:var(--mut);padding:24px;border-top:1px solid var(
 <body>
 <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <nav>
-<a data-go="home"><i data-i="home"></i><span>خانه</span></a><a data-go="members"><i data-i="users"></i><span>اعضا</span></a><a data-go="chat"><i data-i="chat"></i><span>پیام‌رسان</span></a><a data-go="schedule"><i data-i="cal"></i><span>برنامه کلاسی</span></a><a data-go="game"><i data-i="game"></i><span>بازی</span></a>
+<a data-go="home"><i data-i="home"></i><span>خانه</span></a><a data-go="members"><i data-i="users"></i><span>اعضا</span></a><a data-go="chat"><i data-i="chat"></i><span>پیام‌رسان</span></a><a data-go="schedule"><i data-i="cal"></i><span>برنامه کلاسی</span></a><a data-go="game"><i data-i="game"></i><span>بازی</span></a><a data-go="tools"><i data-i="calc"></i><span>ابزار</span></a>
 </nav>
 <div class="page on" id="p-home">
 <header>
 <span class="fm" style="top:70px;right:5%">a²+b²=c²</span><span class="fm" style="top:150px;left:4%;animation-delay:-2s">∫ f(x)dx</span><span class="fm" style="top:30px;left:22%;animation-delay:-4s">sin²x+cos²x=1</span><span class="fm" style="top:210px;right:12%;animation-delay:-3s">eⁱπ+1=0</span>
 <span class="tag"><i data-i="sig"></i>دهم ریاضی</span>
-<h1>کلاس ریاضی<br><span>شعبه ۲</span></h1>
+<h1>کلاس ریاضی<br><span>شعبه <b class="cn" style="font:inherit"></b></span></h1>
 <p>پروژه‌ها، گفت‌وگو و برنامه‌ی هفتگی؛ همه‌ی کلاس ما یک‌جا.</p>
 <span class="tag" id="today"></span>
 <svg class="wave" viewBox="0 0 600 100" preserveAspectRatio="none"><defs><linearGradient id="g"><stop offset="0" stop-color="#4cc9f0"/><stop offset=".5" stop-color="#ff5c93"/><stop offset="1" stop-color="#ffc857"/></linearGradient></defs><path d="M0 50H600M300 0V100" stroke="#ffffff22" stroke-width="1"/><path class="sw" d="M0 50Q75 -10 150 50T300 50T450 50T600 50" stroke="url(#g)" stroke-width="3"/></svg>
@@ -149,6 +166,8 @@ footer{text-align:center;color:var(--mut);padding:24px;border-top:1px solid var(
 <div class="hc" data-go="chat" style="--k:#ff5c93"><span class="n">۰۲</span><i class="ico" data-i="chat"></i><h3>پیام‌رسان</h3><p>گپ زنده‌ی کلاس</p></div>
 <div class="hc" data-go="schedule" style="--k:#2ee6a6"><span class="n">۰۳</span><i class="ico" data-i="cal"></i><h3>برنامه کلاسی</h3><p>برنامه‌ی هفتگی دهم ریاضی ۲</p></div>
 <div class="hc" data-go="game" style="--k:#ffc857"><span class="n">۰۴</span><i class="ico" data-i="game"></i><h3>بازی و کوییز</h3><p>امتیازت را بساز و رکورد بزن</p></div>
+<div class="hc" data-go="tools" style="--k:#4cc9f0"><span class="n">۰۵</span><i class="ico" data-i="calc"></i><h3>ابزارها</h3><p>ماشین‌حساب، معدل و برنامه‌ی امتحانات</p></div>
+<div class="hc" data-go="media" style="--k:#f472b6"><span class="n">۰۶</span><i class="ico" data-i="folder"></i><h3>گالری رسانه</h3><p>پوشه، عکس، ویدیو و صدا</p></div>
 </div>
 </div>
 <section class="page wrap" id="p-members"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>اعضای کلاس</h2></div><div class="row" style="margin:-8px 0 20px"><button class="btn" id="addg"><i data-i="plus"></i>افزودن گروه</button></div><div class="groups" id="groups"></div></section>
@@ -156,16 +175,36 @@ footer{text-align:center;color:var(--mut);padding:24px;border-top:1px solid var(
 <div class="chat"><div class="msgs" id="msgs"></div>
 <div class="bar"><input class="in" id="cname" placeholder="اسمت" style="max-width:150px"><input class="in" id="ctext" placeholder="پیامت را بنویس..."><button class="btn" id="send"><i data-i="send"></i>ارسال</button></div></div></section>
 <section class="page wrap" id="p-schedule"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>برنامه کلاسی دهم ریاضی ۲</h2></div>
-<p class="sub">برنامه‌ی هفتگی کلاس ریاضی شعبه ۲.</p>
+<p class="sub" id="ssub">برنامه‌ی هفتگی کلاس ریاضی شعبه <b class="cn" style="font:inherit"></b>.</p>
 <div id="nowbox"></div>
 <div class="rs"><label><input type="checkbox" id="remon">یادآور زنگ‌ها</label><span>قبل از هر زنگ</span><select class="in" id="remlead"><option value="5">۵ دقیقه</option><option value="10">۱۰ دقیقه</option><option value="15">۱۵ دقیقه</option></select><span>خبرم کن</span><button class="btn g s" id="remtest">تست یادآور</button><small id="remhint"></small></div>
 <div id="days"></div></section>
+<section class="page wrap" id="p-tools"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>ابزارها</h2></div>
+<div class="row" style="margin:0 0 16px"><button class="btn" id="tb1">ماشین‌حساب</button><button class="btn g" id="tb2">امتحانات</button></div>
+<div id="t-calc"><div class="dsp" id="cx">0</div><div class="cg" id="cgrid"></div></div>
+<div id="t-exam" style="display:none"><div id="exbn"></div><div class="row" style="margin:0 0 16px"><button class="btn" id="exadd"><i data-i="plus"></i>افزودن برنامه‌ی امتحانی</button></div><div id="exlist"></div></div></section>
+<section class="page wrap" id="p-media"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>گالری رسانه</h2></div><div class="row" style="margin:0 0 16px"><button class="btn" id="mt1">روی این دستگاه</button><button class="btn g" id="mt2">عمومی (GitHub)</button></div><div id="mbody"></div><div id="pbody" style="display:none"></div></section>
 <section class="page wrap" id="p-game"><div class="ph"><button class="back" data-go="home" aria-label="خانه"><i data-i="back"></i></button><h2>کوییز علمی</h2></div><div class="gm" id="gbox"></div></section>
-<footer>ساخته‌شده برای کلاس دهم ریاضی شعبه ۲<br><small id="net"></small></footer>
+<footer>ساخته‌شده برای کلاس دهم ریاضی شعبه <b class="cn" style="font:inherit"></b><br><small id="net"></small></footer>
 <div class="modal" id="modal"><div class="box" id="mbox"></div></div>
 <div id="rem"></div>
 <div id="toast"></div>
 <script>
+// ===== تنظیم چت آنلاین: آدرس Firebase Realtime Database خودت را اینجا بگذار =====
+// مثال: const FB_URL="https://class-10-default-rtdb.firebaseio.com";
+const FB_URL="";
+const mkFB=u=>{const P=[],ref=()=>P.forEach(x=>x()),
+ f=(p,m,b,q="")=>fetch(`${u.replace(/\/$/,"")}/${p}.json${q}`,m?{method:m,body:JSON.stringify(b)}:undefined).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
+ poll=(get,cb)=>{let last;const run=()=>get().then(v=>{const s=JSON.stringify(v);if(s!==last){last=s;cb(v)}}).catch(()=>{});P.push(run);run();setInterval(run,2500)};
+ return{
+  collection:n=>({add:m=>f(n,"POST",m).then(r=>{ref();return r}),
+   orderBy:(fl,dir)=>({limit:l=>({onSnapshot:cb=>poll(()=>f(n,0,0,'?orderBy="$key"&limitToLast=300'),o=>{
+    const a=Object.entries(o||{}).sort((x,y)=>x[0]<y[0]?-1:1).map(e=>e[1]);
+    if(fl!=="ts")a.sort((x,y)=>dir==="desc"?y[fl]-x[fl]:x[fl]-y[fl]);
+    cb({docs:(fl==="ts"?a.slice(-l):a.slice(0,l)).map(d=>({data:()=>d}))})})})})}),
+  doc:p=>({set:o=>f(p,"PUT",o).then(r=>{ref();return r}),onSnapshot:cb=>poll(()=>f(p),v=>cb({exists:true,data:()=>v||{}}))})
+ }};
+
 // ناوبری را از ابتدای اجرای اسکریپت فعال می‌کنیم تا حتی اگر بخش دیگری خطا داشت، کلیک‌ها کار کنند.
 document.addEventListener("click", function (e) {
   const target = e.target.closest("[data-go]");
@@ -177,6 +216,8 @@ document.addEventListener("click", function (e) {
   window.scrollTo(0, 0);
   if (page === "chat" && typeof showMsgs === "function") showMsgs();
   if (page === "schedule" && typeof tick === "function") tick();
+  if (page === "tools" && typeof renderEx === "function") renderEx();
+  if (page === "media" && typeof mRender === "function") mRender();
   if (page === "game" && typeof gStart === "function") gStart();
   else if (typeof gt !== "undefined") clearInterval(gt);
 });
@@ -184,9 +225,12 @@ window.addEventListener("error", function (e) {
   console.error("خطای سایت:", e.message, e.filename, e.lineno);
 });
 // گروه‌های پیش‌فرض (برای همه‌ی بازدیدکنندگان). گروه‌هایی که از دکمه‌ی «افزودن گروه» ساخته شوند جدا ذخیره می‌شوند.
-const DEFAULT_GROUPS=[
+const C1=false,SX="",CN="۲";
+const K=k=>C1&&k!=="myname"?"c1_"+k:k;
+const DG2=[
  {name:"گروه کامپیوتر",icon:"code",color:"#7c5cff",members:["امیر عباس عباسی","امیر رضا روزی طلب","علی طالبی"]}
 ];
+const DEFAULT_GROUPS=C1?[]:DG2;
 // برنامه کلاسی: [روز، زنگ ۱، زنگ ۲، زنگ ۳، زنگ ۴]
 const D=[
  ["شنبه","عربی","هندسه","مهارت‌های زندگی","دفاعی"],
@@ -200,6 +244,8 @@ const S={"ریاضی":["sig","#7c5cff"],"هندسه":["tri","#4cc9f0"],"فیزی
 const IC={
 home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
 plus:'<path d="M12 5v14M5 12h14"/>',
+folder:'<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>',
+calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/>',
 bell:'<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4zM10 21h4"/>',
 users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-4 3-6 6.5-6s6.5 2 6.5 6M16 5a3.5 3.5 0 010 7M18 14c2.5.6 3.5 2.6 3.5 6"/>',
 chat:'<path d="M4 5h16v11H10l-5 4v-4H4z"/>',
@@ -232,8 +278,8 @@ document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=ic(e.dataset.i));
 const $=s=>document.querySelector(s);
 let tt;const toast=m=>{const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(tt);tt=setTimeout(()=>t.style.display="none",2800)};
 const mem={};
-const load=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch{return k in mem?mem[k]:d}};
-const save=(k,v)=>{mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v));return true}catch{toast("حافظه مرورگر پر است یا در دسترس نیست");return false}};
+const load=(k,d)=>{try{const v=localStorage.getItem(K(k));return v===null?d:JSON.parse(v)}catch{return k in mem?mem[k]:d}};
+const save=(k,v)=>{mem[k]=v;try{localStorage.setItem(K(k),JSON.stringify(v));return true}catch{toast("حافظه مرورگر پر است یا در دسترس نیست");return false}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const col=n=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%360;return`hsl(${h} 75% 65%)`};
 const av=n=>`<b class="av" style="background:${col(n)}">${esc([...n][0]||"؟")}</b>`;
@@ -248,7 +294,7 @@ const COLOR_CHOICES=["#7c5cff","#ff5c93","#2ee6a6","#ffc857","#4cc9f0","#ff8a3d"
 let GROUPS=[];
 let CG=load("custom_groups",[]);
 const customGroups=()=>CG;
-function putGroups(l){CG=l;const ok=save("custom_groups",l);if(DB)DB.doc("cfg/groups").set({list:l}).catch(()=>toast("ذخیره‌ی آنلاین انجام نشد"));return ok}
+function putGroups(l){CG=l;const ok=save("custom_groups",l);if(DB)DB.doc("cfg/groups"+SX).set({list:l}).catch(()=>toast("ذخیره‌ی آنلاین انجام نشد"));return ok}
 function renderGroups(){
  GROUPS=[...DEFAULT_GROUPS,...customGroups().map(g=>({...g,custom:true}))];
  $("#groups").innerHTML=GROUPS.map((g,i)=>`<div class="gc" style="--k:${g.color||PAL[i%5]}" onclick="openGroup(${i})"><div class="gh"><i class="ico">${ic(g.icon||"users")}</i><h3>${esc(g.name)}</h3>${g.custom?`<button class="btn g s" style="margin-inline-start:auto" title="حذف گروه" onclick="event.stopPropagation();askDelGroup(${i-DEFAULT_GROUPS.length})">${ic("del")}</button>`:""}</div>${g.members.map(m=>`<div class="mb">${av(m)}<span>${esc(m)}</span></div>`).join("")}<small>ورود به بخش پروژه‌ها ←</small></div>`).join("");
@@ -282,7 +328,7 @@ function askDelGroup(j){
  $("#gno").onclick=()=>modal.classList.remove("on");
  $("#gyes").onclick=()=>{
   const l=customGroups();l.splice(j,1);putGroups(l);
-  delete mem["proj_"+g.name];try{localStorage.removeItem("proj_"+g.name)}catch{}
+  delete mem["proj_"+g.name];try{localStorage.removeItem(K("proj_"+g.name))}catch{}
   modal.classList.remove("on");renderGroups();toast("گروه حذف شد");
  };
  modal.classList.add("on");
@@ -313,15 +359,16 @@ function openGroup(i){
 
 // پیام‌رسان (آنلاین و مشترک بین همه؛ در حالت محلی روی همین دستگاه)
 let DB=null,MS=load("msgs",[]),LB=load("lb",[]);
-const setNet=()=>$("#net").textContent=DB?"● آنلاین: پیام‌ها، گروه‌ها و رکوردها بین همه مشترک است":"● حالت محلی: اطلاعات فقط روی همین دستگاه ذخیره می‌شود";
+const setNet=()=>$("#net").textContent=DB?"● آنلاین: پیام‌ها، گروه‌ها و رکوردها بین همه مشترک است":"● حالت محلی: اطلاعات فقط روی همین دستگاه ذخیره می‌شود"+(FB_URL?"":" (FB_URL در فایل خالی است)");
 setNet();
 (async()=>{
- try{DB=window.claude?await claude.use("db"):null}catch{DB=null}
+ try{DB=FB_URL?mkFB(FB_URL):(window.claude?await claude.use("db"):null)}catch{DB=null}
  setNet();if(!DB)return;
+ if(FB_URL)fetch(FB_URL.replace(/\/$/,"")+"/msgs.json?shallow=true").then(r=>{$("#net").textContent=r.ok?"● آنلاین: به Firebase وصل است":"✕ اتصال به Firebase برقرار نشد (کد "+r.status+(r.status==401||r.status==403?" — قوانین Rules منتشر نشده یا اشتباه است":r.status==404?" — آدرس FB_URL اشتباه است":"")+")"}).catch(()=>{$("#net").textContent="✕ آدرس Firebase در دسترس نیست؛ FB_URL را بررسی کن"});
  const er=e=>console.error(e);
- DB.collection("msgs").orderBy("ts").limit(150).onSnapshot(s=>{MS=s.docs.map(d=>d.data());showMsgs()},er);
- DB.collection("lb").orderBy("s","desc").limit(8).onSnapshot(s=>{LB=s.docs.map(d=>d.data())},er);
- DB.doc("cfg/groups").onSnapshot(s=>{if(s.exists){CG=s.data().list||[];renderGroups()}},er);
+ DB.collection("msgs"+SX).orderBy("ts").limit(150).onSnapshot(s=>{MS=s.docs.map(d=>d.data());showMsgs()},er);
+ DB.collection("lb"+SX).orderBy("s","desc").limit(8).onSnapshot(s=>{LB=s.docs.map(d=>d.data())},er);
+ DB.doc("cfg/groups"+SX).onSnapshot(s=>{if(s.exists){CG=s.data().list||[];renderGroups()}},er);
 })();
 $("#cname").value=load("myname","");
 function showMsgs(){
@@ -334,7 +381,7 @@ function sendMsg(){
  if(!n)return toast("اول اسمت را بنویس");if(!t)return;
  const m={n,t,time:new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"}),ts:Date.now()};
  save("myname",n);$("#ctext").value="";
- if(DB)DB.collection("msgs").add(m).catch(()=>toast("پیام ارسال نشد؛ اجازه‌ی نوشتن نداری یا اینترنت قطع است"));
+ if(DB)DB.collection("msgs"+SX).add(m).catch(()=>toast("پیام ارسال نشد؛ اجازه‌ی نوشتن نداری یا اینترنت قطع است"));
  else{MS.push(m);save("msgs",MS);showMsgs()}
 }
 $("#send").onclick=sendMsg;$("#ctext").onkeydown=e=>{if(e.key==="Enter")sendMsg()};$("#cname").oninput=showMsgs;
@@ -516,7 +563,7 @@ function gAsk(){
 function gEnd(){
  const N=G.q.length,rec={n:G.n,s:G.s,c:G.c,tp:G.tp,ts:Date.now()};
  LB=[...LB,rec].sort((a,b)=>b.s-a.s).slice(0,8);save("lb",LB);
- if(DB)DB.collection("lb").add(rec).catch(()=>{});
+ if(DB)DB.collection("lb"+SX).add(rec).catch(()=>{});
  const f=G.c/N,m=f>=.9?"نابغه‌ای!":f>=.7?"عالی بود!":f>=.5?"خوب بود!":"دفعه‌ی بعد بهتر می‌شود!";
  $("#gbox").innerHTML=`<h3>${esc(G.n)}، ${m}</h3><div class="big">${fa(G.s)}</div><p>${esc(G.tp)} · ${fa(G.c)} پاسخ درست از ${fa(N)}</p><div class="row" style="justify-content:center"><button class="btn" id="ga">بازی دوباره</button></div>${lbHtml()}`;
  $("#ga").onclick=()=>gTopics(G.n);
@@ -526,6 +573,258 @@ function gEnd(){
 function go(p){document.querySelectorAll(".page").forEach(e=>e.classList.toggle("on",e.id==="p-"+p));document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.go===p));scrollTo(0,0);if(p==="chat")showMsgs();if(p==="game")gStart();else clearInterval(gt)}
 
 go("home");
+
+// انتخاب کلاس
+document.querySelectorAll(".cn").forEach(e=>e.textContent=CN);
+document.title="۱۰ "+(C1?"یک":"دو")+" | دهم ریاضی "+CN;
+
+// ===== ابزارها: ماشین‌حساب مهندسی + معدل =====
+const nd=t=>String(t).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d));
+const num=t=>t.trim()===""?NaN:+nd(t).replace(/[٫،,\/]/g,".");
+const fd=t=>String(t).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+let CE="",DEG=true;
+const CB=[["sin","sin(","f"],["cos","cos(","f"],["tan","tan(","f"],["DEG","DEG","o"],["⌫","BK","o"],
+["sin⁻¹","asin(","f"],["cos⁻¹","acos(","f"],["tan⁻¹","atan(","f"],["π","π","f"],["e","e","f"],
+["log","log(","f"],["ln","ln(","f"],["√","√(","f"],["x²","^2","f"],["xʸ","^","f"],
+["(","(","f"],[")",")","f"],["abs","abs(","f"],["1/x","1/(","f"],["C","C","o"],
+["7","7"],["8","8"],["9","9"],["÷","÷","op"],["×","×","op"],
+["4","4"],["5","5"],["6","6"],["−","−","op"],["+","+","op"],
+["1","1"],["2","2"],["3","3"],["0","0"],[".","."],
+["میانگین / معدل","AVG","op",3],["=","EQ","eq",2]];
+function calcEval(x){
+ const s=x.replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-").replace(/π/g,"(PI)").replace(/√/g,"sqrt").replace(/\^/g,"**");
+ const ok=["sin","cos","tan","asin","acos","atan","log","ln","sqrt","abs","PI","e"];
+ if((s.match(/[a-zA-Z]+/g)||[]).some(i=>!ok.includes(i))||/[^0-9a-zA-Z+\-*/().\s]/.test(s))throw 0;
+ const r2=v=>DEG?v*Math.PI/180:v,d2=v=>DEG?v*180/Math.PI:v;
+ const F={sin:v=>Math.sin(r2(v)),cos:v=>Math.cos(r2(v)),tan:v=>Math.tan(r2(v)),asin:v=>d2(Math.asin(v)),acos:v=>d2(Math.acos(v)),atan:v=>d2(Math.atan(v)),log:Math.log10,ln:Math.log,sqrt:Math.sqrt,abs:Math.abs};
+ const r=Function(...Object.keys(F),"PI","e",'"use strict";return('+s+')')(...Object.values(F),Math.PI,Math.E);
+ if(typeof r!=="number"||!isFinite(r))throw 0;
+ return Math.abs(r)<1e-12?0:+r.toPrecision(12);
+}
+$("#cgrid").innerHTML=CB.map((b,i)=>`<button class="${b[2]||""}" data-k="${i}"${b[3]?` style="grid-column:span ${b[3]}"`:""}>${b[0]}</button>`).join("");
+$("#cgrid").onclick=e=>{
+ const b=e.target.closest("button");if(!b)return;const k=CB[b.dataset.k][1];
+ if(k==="AVG")return avgStart();
+ if(k==="C")CE="";else if(k==="BK")CE=CE.slice(0,-1);
+ else if(k==="DEG"){DEG=!DEG;b.textContent=DEG?"DEG":"RAD"}
+ else if(k==="EQ"){try{CE=String(calcEval(CE))}catch{CE="خطا"}}
+ else{if(CE==="خطا")CE="";CE+=k}
+ $("#cx").textContent=CE||"0";
+};
+const mclose=()=>modal.classList.remove("on");
+function avgStart(){
+ $("#mbox").innerHTML=`<h3>محاسبه‌ی معدل</h3><p>چند تا نمره‌ی امتحان داری؟</p><input class="in" id="an" inputmode="numeric" placeholder="مثلاً ۴" maxlength="2"><div class="row"><button class="btn" id="ago">ادامه</button><button class="btn g" id="acn">انصراف</button></div>`;
+ modal.classList.add("on");$("#acn").onclick=mclose;
+ $("#ago").onclick=()=>{const n=num($("#an").value);if(!Number.isInteger(n)||n<1||n>30)return toast("عددی بین ۱ تا ۳۰ بنویس");avgAsk(n)};
+}
+function avgAsk(n){
+ $("#mbox").innerHTML=`<h3>نمره‌ها را وارد کن</h3><p style="color:var(--mut)">نمره از ۲۰. اگر ضریب درس را نمی‌دانی، ۱ بگذار.</p>${Array.from({length:n},(_,i)=>`<div class="row" style="gap:8px;flex-wrap:nowrap"><b>${fa(i+1)}</b><input class="in as" inputmode="decimal" placeholder="نمره"><input class="in aw" inputmode="decimal" placeholder="ضریب" value="1" style="max-width:90px"></div>`).join("")}<div class="row"><button class="btn" id="acalc">محاسبه‌ی معدل</button><button class="btn g" id="acn">انصراف</button></div>`;
+ $("#acn").onclick=mclose;
+ $("#acalc").onclick=()=>{
+  const s=[...document.querySelectorAll(".as")].map(x=>num(x.value)),w=[...document.querySelectorAll(".aw")].map(x=>num(x.value));
+  if(s.some(v=>!(v>=0&&v<=20))||w.some(v=>!(v>0)))return toast("نمره‌ها باید بین ۰ تا ۲۰ و ضریب‌ها بزرگ‌تر از صفر باشند");
+  const m=s.reduce((a,v,i)=>a+v*w[i],0)/w.reduce((a,b)=>a+b,0);
+  const [l,c,t]=m>=19?["عالی","#2ee6a6","آفرین! در سطح ممتاز هستی."]:m>=17?["خیلی خوب","#2ee6a6","وضعیتت خیلی خوب است؛ همین‌طور ادامه بده."]:m>=15?["خوب","#4cc9f0","معدلت خوب است و با کمی تلاش بیشتر عالی می‌شود."]:m>=12?["متوسط","#ffc857","قابل قبول است ولی جا برای پیشرفت داری."]:m>=10?["ضعیف","#ff8a3d","پایین است و به مردودی نزدیکی؛ برنامه‌ی مطالعه‌ات را جدی‌تر کن."]:["بد (مردود)","#ff5c93","زیر ۱۰ است؛ حتماً با معلم صحبت کن و جبران را شروع کن."];
+  $("#mbox").innerHTML=`<h3>معدل تو</h3><div class="big" style="color:${c}">${fa(+m.toFixed(2))}</div><p><b style="color:${c}">وضعیت: ${l}</b><br>${t}</p><div class="row" style="justify-content:center"><button class="btn" id="acn">بستن</button></div>`;
+  $("#acn").onclick=mclose;
+ };
+}
+// ===== برنامه‌ی امتحانات =====
+const j2g=(jy,jm,jd)=>{jy+=1595;let days=-355668+365*jy+~~(jy/33)*8+~~(((jy%33)+3)/4)+jd+(jm<7?(jm-1)*31:(jm-7)*30+186),gy=400*~~(days/146097);days%=146097;
+ if(days>36524){gy+=100*~~(--days/36524);days%=36524;if(days>=365)days++}gy+=4*~~(days/1461);days%=1461;if(days>365){gy+=~~((days-1)/365);days=(days-1)%365}
+ let gd=days+1,sal=[0,31,(gy%4==0&&gy%100!=0)||gy%400==0?29:28,31,30,31,30,31,31,30,31,30,31],gm;for(gm=0;gm<13&&gd>sal[gm];gm++)gd-=sal[gm];return[gy,gm,gd]};
+let EX=load("exams",[]);
+const p=d=>d.split("-").map(Number);
+const left=d=>{const [y,m,x]=p(d),n=new Date();return Math.round((new Date(y,m-1,x)-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5)};
+const dtxt=d=>{const [y,m,x]=p(d);return new Date(y,m-1,x).toLocaleDateString("fa-IR-u-ca-persian",{weekday:"long",day:"numeric",month:"long"})};
+const lw=n=>n<0?"گذشته":n===0?"امروز":n===1?"فردا":fa(n)+" روز دیگر";
+const when=x=>`${dtxt(x.d)}${x.t?" ساعت "+fd(x.t):""}`;
+function nearest(){let b=null;EX.forEach(s=>s.items.forEach(x=>{const n=left(x.d);if(n>=0&&(!b||n<b.n||(n===b.n&&(x.t||"")<(b.x.t||""))))b={n,x,s}}));return b}
+function exBanner(){const b=nearest();return b?`<div class="now" style="--k:${b.n<=2?"#ff5c93":"#4cc9f0"}"><i class="ico">${ic("bell")}</i><div><b>نزدیک‌ترین امتحان: ${esc(b.x.l)}</b><span>${lw(b.n)} — ${when(b.x)} (${esc(b.s.title)})</span></div></div>`:""}
+function renderEx(){
+ $("#exbn").innerHTML=exBanner()||"<p class='sub'>هنوز امتحانِ آینده‌ای ثبت نشده است.</p>";
+ $("#exhome").innerHTML=exBanner();
+ $("#exlist").innerHTML=EX.map((s,i)=>`<div class="ec"><div class="gh"><b>${esc(s.title)}</b><button class="btn g s" style="margin-inline-start:auto" data-xd="${i}" aria-label="حذف">${ic("del")}</button></div>${s.file?`<div style="margin:8px 0">${s.file.type.startsWith("image/")?`<img src="${s.file.data}" alt="" style="max-width:100%;border-radius:12px;margin-bottom:8px"><br>`:""}<a class="btn g s" href="${s.file.data}" download="${esc(s.file.name)}">دانلود فایل برنامه</a></div>`:""}${[...s.items].sort((a,b)=>(a.d+(a.t||""))<(b.d+(b.t||""))?-1:1).map(x=>{const n=left(x.d);return`<div style="display:flex;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--line)"><span>${esc(x.l)}</span><span class="chip${n>=0&&n<=2?" soon":""}" style="margin-inline-start:auto">${lw(n)} · ${when(x)}</span></div>`}).join("")}</div>`).join("")||"<p class='emp'>برنامه‌ای ثبت نشده. با دکمه‌ی بالا اولین برنامه را اضافه کن.</p>";
+}
+function exRemind(){
+ const t=new Date().toDateString();let R=load("exr",{d:"",k:[]});if(R.d!==t)R={d:t,k:[]};
+ EX.forEach(s=>s.items.forEach(x=>{const n=left(x.d),id=s.id+x.l+x.d;if(n>=0&&n<=3&&!R.k.includes(id)){R.k.push(id);save("exr",R);showRem("یادآور امتحان: "+x.l,lw(n)+" — "+when(x))}}));
+}
+function exAdd(){
+ $("#mbox").innerHTML=`<h3>افزودن برنامه‌ی امتحانی</h3><input class="in" id="et" placeholder="اسم برنامه (مثلاً امتحانات میان‌ترم)" maxlength="40"><textarea class="in" id="ex" rows="6" placeholder="هر امتحان در یک خط:&#10;درس - تاریخ شمسی - ساعت (اختیاری)&#10;ریاضی - ۱۴۰۵/۹/۲۰ - ۸:۳۰&#10;فیزیک - ۱۴۰۵/۹/۲۲"></textarea><span class="lbl">فایل برنامه (عکس یا PDF، اختیاری، تا ۱٫۵ مگابایت)</span><input class="in" type="file" id="ef" accept="image/*,application/pdf"><div class="row"><button class="btn" id="esv">ذخیره</button><button class="btn g" id="acn">انصراف</button></div>`;
+ modal.classList.add("on");$("#acn").onclick=mclose;
+ $("#esv").onclick=async()=>{
+  const items=[];let bad=0;
+  nd($("#ex").value).split("\n").forEach(l=>{l=l.trim();if(!l)return;
+   const m=l.match(/^(.*?)[\s\-،,|]+(\d{4})[\/.](\d{1,2})[\/.](\d{1,2})(?:[\s\-،,|]+(\d{1,2}):(\d{2}))?\s*$/);
+   if(!m||!m[1].trim()||+m[3]<1||+m[3]>12||+m[4]<1||+m[4]>31){bad++;return}
+   const [y,mo,d]=j2g(+m[2],+m[3],+m[4]),z=v=>String(v).padStart(2,"0");
+   items.push({l:m[1].trim(),d:`${y}-${z(mo)}-${z(d)}`,t:m[5]?`${z(m[5])}:${m[6]}`:""})});
+  if(bad)return toast(fa(bad)+" خط را نتوانستم بخوانم؛ قالب: درس - ۱۴۰۵/۹/۲۰ - ۸:۳۰");
+  const f=$("#ef").files[0];let file=null;
+  if(f){if(f.size>1.5e6)return toast("حجم فایل بیشتر از ۱٫۵ مگابایت است");
+   file=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r({name:f.name,type:f.type,data:fr.result});fr.readAsDataURL(f)})}
+  if(!items.length&&!file)return toast("حداقل یک امتحان یا یک فایل اضافه کن");
+  EX.push({id:Date.now(),title:$("#et").value.trim()||"برنامه‌ی امتحانی",items,file});
+  if(!save("exams",EX)){EX.pop();return}
+  mclose();renderEx();exRemind();toast("برنامه اضافه شد");
+ };
+}
+document.querySelector(".hc").parentElement.insertAdjacentHTML("beforebegin",'<div id="exhome" style="margin:0 0 14px"></div>');
+$("#exadd").onclick=exAdd;
+$("#exlist").onclick=e=>{
+ const b=e.target.closest("[data-xd]");if(!b)return;
+ if(!b.dataset.sure){b.dataset.sure=1;toast("برای حذف، دوباره بزن");setTimeout(()=>delete b.dataset.sure,3000);return}
+ EX.splice(+b.dataset.xd,1);save("exams",EX);renderEx();
+};
+$("#tb1").onclick=()=>{$("#t-calc").style.display="";$("#t-exam").style.display="none";$("#tb1").className="btn";$("#tb2").className="btn g"};
+$("#tb2").onclick=()=>{$("#t-calc").style.display="none";$("#t-exam").style.display="";$("#tb2").className="btn";$("#tb1").className="btn g";renderEx()};
+renderEx();setTimeout(exRemind,1200);setInterval(()=>{renderEx();exRemind()},6e5);
+
+// ===== گالری رسانه: پوشه + عکس/ویدیو/صدا (ذخیره در IndexedDB همین مرورگر) =====
+const MAXF=100*1024*1024;
+const idb=new Promise((ok,no)=>{if(!window.indexedDB)return no();const r=indexedDB.open("cls_media",1);r.onupgradeneeded=()=>{const d=r.result;d.createObjectStore("folders",{keyPath:"id"});d.createObjectStore("files",{keyPath:"id"}).createIndex("f","fid")};r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+const tx=(st,mode,fn)=>idb.then(d=>new Promise((ok,no)=>{const t=d.transaction(st,mode),r=fn(t);t.oncomplete=()=>ok(r&&r.result);t.onerror=t.onabort=()=>no(t.error)}));
+const byF=(t,id,m)=>t.objectStore("files").index("f")[m](IDBKeyRange.only(id));
+let MF=null,URLS=[],mk=0;
+const sure=b=>{if(b.dataset.s)return true;b.dataset.s=1;toast("برای حذف، دوباره بزن");setTimeout(()=>delete b.dataset.s,3000);return false};
+async function mRender(){
+ URLS.forEach(u=>URL.revokeObjectURL(u));URLS=[];
+ const box=$("#mbody");
+ try{
+  if(!MF){
+   const fs=(await tx("folders","readonly",t=>t.objectStore("folders").getAll())).sort((a,b)=>b.id-a.id);
+   const cn=await Promise.all(fs.map(f=>tx("files","readonly",t=>byF(t,f.id,"count"))));
+   box.innerHTML=`<div class="row" style="margin:0 0 16px"><button class="btn" id="mnew">${ic("plus")}پوشه‌ی جدید</button></div>`+(fs.length?`<div class="groups">${fs.map((f,i)=>`<div class="gc" style="--k:#f472b6" data-of="${f.id}" data-n="${esc(f.name)}"><div class="gh"><i class="ico">${ic("folder")}</i><h3>${esc(f.name)}</h3><button class="btn g s" style="margin-inline-start:auto" data-df="${f.id}" aria-label="حذف پوشه">${ic("del")}</button></div><small>${fa(cn[i])} فایل</small></div>`).join("")}</div>`:"<p class='emp'>هنوز پوشه‌ای نیست. اول یک پوشه با موضوع دلخواه بساز، بعد فایل‌هایت را داخلش آپلود کن.</p>");
+  }else{
+   const fl=(await tx("files","readonly",t=>byF(t,MF.id,"getAll"))).sort((a,b)=>b.id-a.id);
+   box.innerHTML=`<div class="row" style="margin:0 0 6px"><button class="btn g" id="mbk">${ic("back")}همه‌ی پوشه‌ها</button></div><h3 style="margin:8px 0 12px">${esc(MF.name)}</h3><div class="row" style="margin:0 0 16px"><label class="btn">${ic("plus")}آپلود عکس، ویدیو یا صدا<input type="file" id="mup" multiple accept="image/*,video/*,audio/*" hidden></label></div>`+(fl.length?`<div class="mg">${fl.map(x=>{const u=URL.createObjectURL(x.blob);URLS.push(u);const m=x.type.startsWith("image/")?`<img src="${u}" alt="${esc(x.name)}" loading="lazy">`:x.type.startsWith("video/")?`<video src="${u}" controls preload="metadata"></video>`:`<audio src="${u}" controls></audio>`;return`<div class="mi">${m}<div class="mn"><span>${esc(x.name)}</span><a class="btn g s" href="${u}" download="${esc(x.name)}">دانلود</a><button class="btn g s" data-dm="${x.id}" aria-label="حذف فایل">${ic("del")}</button></div></div>`}).join("")}</div>`:"<p class='emp'>این پوشه خالی است.</p>");
+  }
+ }catch{box.innerHTML="<p class='emp'>ذخیره‌ی فایل در این مرورگر ممکن نیست (مثلاً حالت خصوصی). مرورگر دیگری امتحان کن.</p>"}
+}
+async function mUpload(files){
+ let ok=0,bad=0;
+ for(const f of files){
+  if(!/^(image|video|audio)\//.test(f.type)||f.size>MAXF){bad++;continue}
+  try{await tx("files","readwrite",t=>t.objectStore("files").put({id:Date.now()*100+(mk++%100),fid:MF.id,name:f.name,type:f.type,blob:f}));ok++}catch{toast("فضای مرورگر پر است");break}
+ }
+ toast(fa(ok)+" فایل آپلود شد"+(bad?` و ${fa(bad)} فایل رد شد (نوع نامعتبر یا بیشتر از ۱۰۰ مگابایت)`:""));
+ mRender();
+}
+function mNew(){
+ $("#mbox").innerHTML=`<h3>پوشه‌ی جدید</h3><input class="in" id="mfn" placeholder="موضوع پوشه (مثلاً اردوی مشهد)" maxlength="40"><div class="row"><button class="btn" id="mfs">ساخت پوشه</button><button class="btn g" id="acn">انصراف</button></div>`;
+ modal.classList.add("on");$("#acn").onclick=mclose;setTimeout(()=>$("#mfn").focus(),50);
+ $("#mfs").onclick=async()=>{
+  const name=$("#mfn").value.trim().replace(/\s+/g," ");if(!name)return toast("موضوع پوشه را بنویس");
+  const id=Date.now();
+  try{await tx("folders","readwrite",t=>t.objectStore("folders").put({id,name}))}catch{return toast("ساخت پوشه ممکن نشد")}
+  MF={id,name};mclose();mRender();toast("پوشه ساخته شد؛ حالا فایل‌هایت را آپلود کن");
+ };
+}
+$("#mbody").onclick=async e=>{
+ const g=q=>e.target.closest(q);
+ if(g("#mnew"))return mNew();
+ if(g("#mbk")){MF=null;return mRender()}
+ let b=g("[data-df]");
+ if(b){if(!sure(b))return;const id=+b.dataset.df;
+  await tx(["folders","files"],"readwrite",t=>{t.objectStore("folders").delete(id);const c=byF(t,id,"openKeyCursor");c.onsuccess=()=>{const k=c.result;if(k){t.objectStore("files").delete(k.primaryKey);k.continue()}}}).catch(()=>{});
+  return mRender()}
+ b=g("[data-dm]");
+ if(b){if(!sure(b))return;await tx("files","readwrite",t=>t.objectStore("files").delete(+b.dataset.dm)).catch(()=>{});return mRender()}
+ b=g("[data-of]");
+ if(b){MF={id:+b.dataset.of,name:b.dataset.n};mRender()}
+};
+$("#mbody").onchange=e=>{if(e.target.id==="mup")mUpload([...e.target.files])};
+mRender();
+
+// ===== گالری عمومی روی GitHub (آپلود مدیر با توکن) =====
+const GHC=()=>load("gh",null);
+async function ghf(p,m,b){
+ const c=GHC(),r=await fetch(`https://api.github.com/repos/${c.o}/${c.r}/contents/${p}`+(m==="GET"?`?ref=${encodeURIComponent(c.b)}`:""),{method:m,headers:{Authorization:"Bearer "+c.t,Accept:"application/vnd.github+json"},body:b?JSON.stringify({...b,branch:c.b}):undefined});
+ if(!r.ok)throw new Error(r.status===401?"توکن نامعتبر یا منقضی است":r.status===403?"دسترسی توکن کافی نیست":r.status===404?"ریپازیتوری یا مسیر پیدا نشد":r.status===409||r.status===422?"تداخل در ذخیره؛ دوباره امتحان کن":"خطا "+r.status);
+ return r.json();
+}
+async function mfRead(){
+ try{const j=await ghf("media/index.json","GET");return{sha:j.sha,d:JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(j.content.replace(/\s/g,"")),c=>c.charCodeAt(0))))}}
+ catch(e){if(/پیدا نشد/.test(e.message))return{d:{folders:[]}};throw e}
+}
+async function mf(fn){
+ const {sha,d}=await mfRead();d.folders=d.folders||[];fn(d);
+ await ghf("media/index.json","PUT",{message:"update gallery",content:btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(d)))),sha});
+}
+const delFile=async p=>{const j=await ghf(p,"GET");await ghf(p,"DELETE",{message:"remove file",sha:j.sha})};
+let PF=null;
+async function pRender(){
+ const box=$("#pbody"),c=GHC();let d={folders:[]};
+ try{if(c)d=(await mfRead()).d;else{const r=await fetch("media/index.json?"+Date.now());if(r.ok)d=await r.json()}}catch(e){if(c)toast(e.message)}
+ d.folders=d.folders||[];
+ const src=p=>c?`https://raw.githubusercontent.com/${c.o}/${c.r}/${c.b}/${p}`:p;
+ const bar=`<div class="row" style="margin:0 0 16px">${c?`<button class="btn" id="pnew">${ic("plus")}پوشه‌ی جدید</button>`:""}<button class="btn g s" id="pset">${c?"تنظیمات GitHub":"ورود مدیر"}</button></div>`;
+ const f=PF&&d.folders.find(x=>x.slug===PF);
+ if(!f){PF=null;
+  box.innerHTML=bar+(d.folders.length?`<div class="groups">${d.folders.map(x=>`<div class="gc" style="--k:#4cc9f0" data-pf="${esc(x.slug)}"><div class="gh"><i class="ico">${ic("folder")}</i><h3>${esc(x.name)}</h3>${c?`<button class="btn g s" style="margin-inline-start:auto" data-pdf="${esc(x.slug)}" aria-label="حذف پوشه">${ic("del")}</button>`:""}</div><small>${fa((x.files||[]).length)} فایل</small></div>`).join("")}</div>`:"<p class='emp'>هنوز پوشه‌ی عمومی‌ای نیست. این بخش فقط روی سایتی کار می‌کند که روی GitHub/Cloudflare گذاشته شده باشد.</p>");
+ }else{
+  box.innerHTML=`<div class="row" style="margin:0 0 6px"><button class="btn g" id="pbk">${ic("back")}همه‌ی پوشه‌ها</button></div><h3 style="margin:8px 0 12px">${esc(f.name)}</h3>`+(c?`<div class="row" style="margin:0 0 16px"><label class="btn">${ic("plus")}آپلود عکس، ویدیو یا صدا<input type="file" id="pup" multiple accept="image/*,video/*,audio/*" hidden></label></div>`:"")+((f.files||[]).length?`<div class="mg">${f.files.map(x=>{const u=esc(src(x.p)),m=x.t.startsWith("image/")?`<img src="${u}" alt="${esc(x.n)}" loading="lazy">`:x.t.startsWith("video/")?`<video src="${u}" controls preload="metadata"></video>`:`<audio src="${u}" controls></audio>`;return`<div class="mi">${m}<div class="mn"><span>${esc(x.n)}</span><a class="btn g s" href="${u}" download="${esc(x.n)}">دانلود</a>${c?`<button class="btn g s" data-pdm="${esc(x.p)}" aria-label="حذف فایل">${ic("del")}</button>`:""}</div></div>`}).join("")}</div>`:"<p class='emp'>این پوشه خالی است.</p>");
+ }
+}
+function ghSet(){
+ const c=GHC()||{b:"main"};
+ $("#mbox").innerHTML=`<h3>اتصال مدیر به GitHub</h3><p style="color:var(--mut);line-height:1.8">توکن فقط روی همین دستگاه ذخیره می‌شود و هرگز آن را داخل کد سایت نگذار. توکن را با دسترسی «Contents: Read and write» فقط برای همین ریپازیتوری بساز.</p><input class="in" id="g1" placeholder="نام کاربری GitHub" value="${esc(c.o||"")}" dir="ltr"><input class="in" id="g2" placeholder="نام ریپازیتوری" value="${esc(c.r||"")}" dir="ltr"><input class="in" id="g3" placeholder="شاخه (معمولاً main)" value="${esc(c.b)}" dir="ltr"><input class="in" id="g4" type="password" placeholder="${c.t?"توکن ذخیره شده است (برای تغییر، توکن جدید بنویس)":"توکن (github_pat_...)"}" dir="ltr"><div class="row"><button class="btn" id="g5">ذخیره و اتصال</button>${c.t?`<button class="btn g" id="g6">قطع اتصال</button>`:""}<button class="btn g" id="acn">انصراف</button></div>`;
+ modal.classList.add("on");$("#acn").onclick=mclose;
+ if($("#g6"))$("#g6").onclick=()=>{save("gh",null);mclose();pRender()};
+ $("#g5").onclick=async()=>{
+  const n={o:$("#g1").value.trim(),r:$("#g2").value.trim(),b:$("#g3").value.trim()||"main",t:$("#g4").value.trim()||c.t};
+  if(!n.o||!n.r||!n.t)return toast("نام کاربری، ریپازیتوری و توکن را کامل بنویس");
+  try{const r=await fetch(`https://api.github.com/repos/${n.o}/${n.r}`,{headers:{Authorization:"Bearer "+n.t}});
+   if(!r.ok)return toast(r.status===401?"توکن نامعتبر است":"ریپازیتوری پیدا نشد یا توکن به آن دسترسی ندارد");
+   const j=await r.json();if(j.permissions&&!j.permissions.push)return toast("این توکن اجازه‌ی نوشتن ندارد")}
+  catch{return toast("اتصال به GitHub برقرار نشد (روی لینک Claude این بخش کار نمی‌کند)")}
+  save("gh",n);mclose();toast("متصل شد");pRender();
+ };
+}
+function pNew(){
+ $("#mbox").innerHTML=`<h3>پوشه‌ی عمومی جدید</h3><input class="in" id="pfn" placeholder="موضوع پوشه (مثلاً اردوی مشهد)" maxlength="40"><div class="row"><button class="btn" id="pfs">ساخت پوشه</button><button class="btn g" id="acn">انصراف</button></div>`;
+ modal.classList.add("on");$("#acn").onclick=mclose;
+ $("#pfs").onclick=async()=>{
+  const name=$("#pfn").value.trim().replace(/\s+/g," ");if(!name)return toast("موضوع پوشه را بنویس");
+  const slug="f"+Date.now();
+  try{await mf(d=>d.folders.push({name,slug,files:[]}))}catch(e){return toast(e.message)}
+  PF=slug;mclose();pRender();toast("پوشه ساخته شد");
+ };
+}
+async function pUp(files){
+ const f0=PF,added=[];let bad=0;
+ for(const [i,f] of files.entries()){
+  if(!/^(image|video|audio)\//.test(f.type)||f.size>25*1048576){bad++;continue}
+  toast(`در حال آپلود ${fa(i+1)} از ${fa(files.length)}…`);
+  const fn=Date.now()+"_"+f.name.replace(/[^\w.\-]+/g,"_"),p=`media/${f0}/${fn}`;
+  try{const b=await new Promise((ok,no)=>{const fr=new FileReader();fr.onload=()=>ok(fr.result.split(",")[1]);fr.onerror=no;fr.readAsDataURL(f)});
+   await ghf(p,"PUT",{message:"add "+fn,content:b});added.push({n:f.name,t:f.type,p})}
+  catch(e){toast(e.message);bad++;break}
+ }
+ if(added.length)await mf(d=>{const fo=d.folders.find(x=>x.slug===f0);if(fo)fo.files=(fo.files||[]).concat(added)}).catch(e=>toast(e.message));
+ toast(`${fa(added.length)} فایل آپلود شد`+(bad?` و ${fa(bad)} ناموفق/رد شد (نوع نامعتبر یا بیشتر از ۲۵ مگابایت)`:"")+(added.length?". برای بقیه چند دقیقه‌ی دیگر نمایش داده می‌شود.":""));
+ pRender();
+}
+$("#pbody").onclick=async e=>{
+ const g=q=>e.target.closest(q);let b;
+ try{
+  if(g("#pset"))return ghSet();
+  if(g("#pnew"))return pNew();
+  if(g("#pbk")){PF=null;return pRender()}
+  if(b=g("[data-pdf]")){if(!sure(b))return;toast("در حال حذف…");const slug=b.dataset.pdf;let files=[];
+   await mf(d=>{const f=d.folders.find(x=>x.slug===slug);files=f?f.files||[]:[];d.folders=d.folders.filter(x=>x.slug!==slug)});
+   for(const x of files)await delFile(x.p).catch(()=>{});
+   return pRender()}
+  if(b=g("[data-pdm]")){if(!sure(b))return;toast("در حال حذف…");const p=b.dataset.pdm;
+   await mf(d=>{const f=d.folders.find(x=>x.slug===PF);if(f)f.files=(f.files||[]).filter(y=>y.p!==p)});
+   await delFile(p).catch(()=>{});return pRender()}
+  if(b=g("[data-pf]")){PF=b.dataset.pf;pRender()}
+ }catch(er){toast(er.message||"خطا")}
+};
+$("#pbody").onchange=e=>{if(e.target.id==="pup")pUp([...e.target.files])};
+$("#mt1").onclick=()=>{$("#mbody").style.display="";$("#pbody").style.display="none";$("#mt1").className="btn";$("#mt2").className="btn g"};
+$("#mt2").onclick=()=>{$("#mbody").style.display="none";$("#pbody").style.display="";$("#mt2").className="btn";$("#mt1").className="btn g";pRender()};
 </script>
 </body>
 </html>
